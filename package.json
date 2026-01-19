@@ -1,0 +1,34 @@
+{
+  "name": "03-api-solid",
+  "version": "1.0.0",
+  "description": "GymPass style app.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paulo-b2/03-api-solid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paulo-b2/03-api-solid/issues"
+  },
+  "homepage": "https://github.com/Paulo-b2/03-api-solid#readme",
+  "devDependencies": {
+    "@types/node": "25.0.9",
+    "tsup": "8.5.1",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "17.2.3",
+    "fastify": "5.7.1",
+    "zod": "4.3.5"
+  }
+}
