@@ -9,7 +9,9 @@
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,8 @@
   "homepage": "https://github.com/Paulo-b2/03-api-solid#readme",
   "devDependencies": {
     "@types/node": "25.0.9",
+    "@vitest/coverage-v8": "4.0.18",
+    "@vitest/ui": "4.0.18",
     "prisma": "7.2.0",
     "tsup": "8.5.1",
     "tsx": "4.21.0",
