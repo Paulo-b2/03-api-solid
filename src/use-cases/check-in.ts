@@ -9,8 +9,8 @@ import { MaxDistanceError } from "./errors/max-distance-error.js";
 interface CheckInUseCaseRequest {
   userId: string;
   gymId: string;
-  userLatitute: number;
-  userLongitute: number;
+  userLatitude: number;
+  userLongitude: number;
 }
 
 interface CheckInUseCaseResponse {
@@ -26,8 +26,8 @@ export class CheckInUseCase {
   async execute({
     userId,
     gymId,
-    userLatitute,
-    userLongitute,
+    userLatitude,
+    userLongitude,
   }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
     const gym = await this.gymsRepository.findById(gymId);
 
@@ -36,7 +36,7 @@ export class CheckInUseCase {
     }
 
     const distance = getDistanceBetweenCoordinates(
-      { latitude: userLatitute, longitude: userLongitute },
+      { latitude: userLatitude, longitude: userLongitude },
       {
         latitude: gym.latitude.toNumber(),
         longitude: gym.longitude.toNumber(),
