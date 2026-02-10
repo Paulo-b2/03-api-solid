@@ -1,11 +1,13 @@
 import type { Prisma, CheckIn } from "@prisma/client";
 import type { CheckInsRepository } from "../check-ins-repository.js";
-import { prisma } from "@/lib/prisma.js";
+import { getPrisma } from "@/lib/prisma.js";
 import dayjs from "dayjs";
 
 export class PrismaCheckInsRepository implements CheckInsRepository {
+  private prisma = getPrisma();
+
   async create(data: Prisma.CheckInUncheckedCreateInput) {
-    const checkIn = await prisma.checkIn.create({
+    const checkIn = await this.prisma.checkIn.create({
       data,
     });
 
@@ -13,7 +15,7 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
   }
 
   async save(data: CheckIn) {
-    const checkIn = await prisma.checkIn.update({
+    const checkIn = await this.prisma.checkIn.update({
       where: {
         id: data.id,
       },
@@ -24,7 +26,7 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
   }
 
   async findById(id: string) {
-    const checkIn = await prisma.checkIn.findUnique({
+    const checkIn = await this.prisma.checkIn.findUnique({
       where: {
         id,
       },
@@ -37,7 +39,7 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
     const startOfTheDay = dayjs(date).startOf("date");
     const endOfTheDay = dayjs(date).endOf("date");
 
-    const checkIn = await prisma.checkIn.findFirst({
+    const checkIn = await this.prisma.checkIn.findFirst({
       where: {
         user_id: userId,
         created_at: {
@@ -51,7 +53,7 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
   }
 
   async findManyByUserId(userId: string, page: number) {
-    const checkIns = await prisma.checkIn.findMany({
+    const checkIns = await this.prisma.checkIn.findMany({
       where: {
         user_id: userId,
       },
@@ -63,7 +65,7 @@ export class PrismaCheckInsRepository implements CheckInsRepository {
   }
 
   async countByUserId(userId: string) {
-    const count = await prisma.checkIn.count({
+    const count = await this.prisma.checkIn.count({
       where: {
         user_id: userId,
       },
