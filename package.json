@@ -14,6 +14,7 @@
     "test:watch": "vitest --dir src/use-cases",
     "pretest:e2e": "run-s test:create-prisma-environment test:install-prisma-environment",
     "test:e2e": "vitest run --dir src/http",
+    "test:e2e:watch": "vitest --dir src/http",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
   },
@@ -30,10 +31,12 @@
   "homepage": "https://github.com/Paulo-b2/03-api-solid#readme",
   "devDependencies": {
     "@types/node": "25.0.9",
+    "@types/supertest": "6.0.3",
     "@vitest/coverage-v8": "4.0.18",
     "@vitest/ui": "4.0.18",
     "npm-run-all": "4.1.5",
     "prisma": "7.2.0",
+    "supertest": "7.2.2",
     "tsup": "8.5.1",
     "tsx": "4.21.0",
     "typescript": "5.9.3",

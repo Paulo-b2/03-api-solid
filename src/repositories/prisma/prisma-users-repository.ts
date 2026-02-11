@@ -1,4 +1,4 @@
-import { getPrisma } from "@/lib/prisma.js";
+import { getPrisma } from "../../lib/prisma.js";
 import { Prisma } from "@prisma/client";
 import type { UsersRepository } from "../users-repository.js";
 

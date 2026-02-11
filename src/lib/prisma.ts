@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
-import { env } from "@/env/index.js";
+import { env } from "../env/index.js";
 
 let prisma: PrismaClient | null = null;
 
