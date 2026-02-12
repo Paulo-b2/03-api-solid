@@ -1,5 +1,5 @@
 import request from "supertest";
-import { createApp } from "../../app.js";
+import { createApp } from "../../../app.js";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 let app: Awaited<ReturnType<typeof createApp>>;
