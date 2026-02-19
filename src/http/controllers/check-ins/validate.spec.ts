@@ -17,7 +17,7 @@ describe("Validate Check-in (e2e)", () => {
   });
 
   it("should be able to validate a check-in", async () => {
-    const token = createAndAuthenticateUser(app);
+    const token = createAndAuthenticateUser(app, true);
 
     const prisma = getPrisma();
 
