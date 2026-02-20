@@ -18,5 +18,9 @@ jobs:
       - run: npm ci
 
       - run: npx prisma generate
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
       - run: npm run test
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
