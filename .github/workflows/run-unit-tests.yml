@@ -20,7 +20,9 @@ jobs:
       - run: npx prisma generate
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - run: npm run test
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
